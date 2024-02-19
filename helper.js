@@ -32,9 +32,10 @@ function addBooks(req, res) {
       // console.log(data)
       const oldBooks = JSON.parse(data);
       const allBooks = [...oldBooks, newBook];
-
-      const lastBookId = allBooks.length - 1;
-      console.log(allBooks);
+      
+      //adding new id for the data to be addded 
+      const lastBookIndex = allBooks.length-2 
+      const lastBookId = allBooks[lastBookIndex].id;
       newBook.id = lastBookId + 1;
 
       fs.writeFile(bookPath, JSON.stringify(allBooks), (err) => {
