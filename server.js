@@ -12,6 +12,7 @@ const HOST_NAME = "localhost";
 
 function requestHandler(req, res) {
   if (req.url === "/books" && req.method === "GET") {
+    
     authenticate(req, res)
       .then(() => {
         getAllBooks(req, res);
